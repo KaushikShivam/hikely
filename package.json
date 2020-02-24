@@ -18,5 +18,8 @@
   "homepage": "https://github.com/KaushikShivam/hikely#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.1"
   }
 }
