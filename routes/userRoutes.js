@@ -12,3 +12,5 @@ userRouter
   .get(getUser)
   .patch(updateUser)
   .delete(deleteUser);
+
+module.exports = userRouter;
