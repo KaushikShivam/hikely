@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
+const helmet = require('helmet');
 
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
@@ -21,8 +22,10 @@ const limiter = rateLimit({
 });
 
 app.use('/api', limiter);
+app.use(helmet());
 
-app.use(express.json());
+app.use(express.json({ limit: '10kb' }));
+
 app.use(express.static(`${__dirname}/public`));
 
 app.use((req, res, next) => {
