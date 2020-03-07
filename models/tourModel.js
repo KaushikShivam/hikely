@@ -116,6 +116,12 @@ tourSchema.virtual('durationWeeks').get(function() {
   return this.duration / 7;
 });
 
+tourSchema.virtual('reviews', {
+  ref: 'Review',
+  foreignField: 'tour', // name of the field in the other model where the ref to current model is stored
+  localField: '_id' // local name of the field
+});
+
 // Document middleware -> Runs before Save and Create command (Won't work on insertMany)
 tourSchema.pre('save', function(next) {
   // "this" points to the currently processed document
