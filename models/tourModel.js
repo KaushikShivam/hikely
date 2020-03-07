@@ -24,7 +24,7 @@ const tourSchema = new mongoose.Schema(
       type: String,
       required: [true, 'A tour must have a difficulty'],
       enum: {
-        values: ['easy', 'medium', 'diffuclty'],
+        values: ['easy', 'medium', 'difficult'],
         message: 'Difficulty is either easy, medium or difficult'
       }
     },
