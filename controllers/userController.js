@@ -43,20 +43,8 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.getAllUsers = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'The route is not yet defined'
-  });
-};
-
-exports.getUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'The route is not yet defined'
-  });
-};
-
-// exports.createUser = factory.createOne(User);
+exports.getAllUsers = factory.getAll(User);
+exports.getUser = factory.getOne(User);
+// exports.createUser = factory.createOne(User); instead use signup
 exports.updateUser = factory.updateOne(User);
 exports.deleteUser = factory.deleteOne(User);
