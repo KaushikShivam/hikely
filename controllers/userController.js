@@ -48,8 +48,14 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.createUser = (req, res, next) => {
+  res.status(400).json({
+    status: 'fail',
+    message: 'Please use /signup route to create user'
+  });
+};
+
 exports.getAllUsers = factory.getAll(User);
 exports.getUser = factory.getOne(User);
-// exports.createUser = factory.createOne(User); instead use signup
 exports.updateUser = factory.updateOne(User);
 exports.deleteUser = factory.deleteOne(User);
