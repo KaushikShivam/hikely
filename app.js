@@ -7,6 +7,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
@@ -44,6 +45,8 @@ app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(mongoSanitize());
 
 app.use(xss());
+
+app.use(compression());
 
 app.use(
   hpp({

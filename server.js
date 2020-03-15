@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
 process.on('uncaughtException', err => {
+  process.exit(1);
   console.log(err.name, err.message);
   console.log(err);
   console.log('Uncaught Execption! Shutting down');
-  process.exit(1);
 });
 
 dotenv.config({ path: './config.env' });
@@ -19,7 +19,7 @@ mongoose
     useUnifiedTopology: true
   })
   .then(() => {
-    console.log('DB Connection successful');
+    // console.log('DB Connection successful');
   })
   .catch(err => console.log(err));
 
