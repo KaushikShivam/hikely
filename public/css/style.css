@@ -1433,3 +1433,40 @@ body {
     padding: 2rem
   }
 }
+
+@media only screen and (max-width: 1150px) {
+  .section-header {
+    height: 400px;
+  }
+
+  .heading-primary {
+    width: 90%;
+    font-size: 4rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .section-description {
+    flex-direction: column-reverse;
+    clip-path: polygon(0 0,
+        100% 0,
+        100% calc(100% - var(--section-rotate)),
+        0 100%);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+
+  .cta {
+    padding: 2rem
+  }
+
+  .cta__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cta__img {
+    display: none;
+  }
+}
