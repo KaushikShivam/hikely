@@ -32,9 +32,9 @@ app.set('views', path.join(__dirname, 'views'));
 // Implement CORS
 app.use(cors());
 // Access-Control-Allow-Origin *
-// api.natours.com, front-end natours.com
+// api.hikely.com, front-end hikely.com
 // app.use(cors({
-//   origin: 'https://www.natours.com'
+//   origin: 'https://www.hikely.com'
 // }))
 
 app.options('*', cors());

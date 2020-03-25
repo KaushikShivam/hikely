@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet" />
 
     <link rel="stylesheet" href="css/style.css" />
     <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
 
-    <title>Natours | The Park Camper Tour</title>
+    <title>Hikely | The Park Camper Tour</title>
 
     <script src="https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js"></script>
-    <link
-      href="https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css"
-      rel="stylesheet"
-    />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css" rel="stylesheet" />
   </head>
+
   <body>
     <header class="header">
       <nav class="nav nav--tours">
@@ -30,15 +26,11 @@
               <use xlink:href="img/icons.svg#icon-search"></use>
             </svg>
           </button>
-          <input
-            type="text"
-            placeholder="Search tours"
-            class="nav__search-input"
-          />
+          <input type="text" placeholder="Search tours" class="nav__search-input" />
         </form>
       </nav>
       <div class="header__logo">
-        <img src="img/logo-white.png" alt="Natours logo" />
+        <img src="img/logo-white.png" alt="Hikely logo" />
       </div>
       <nav class="nav nav--user">
         <a href="#" class="nav__el">My bookings</a>
@@ -58,10 +50,8 @@
     <section class="section-header">
       <div class="heading-box">
         <h1 class="heading-primary">
-          <span
-            >The Park <br />
-            Camper Tour</span
-          >
+          <span>The Park <br />
+            Camper Tour</span>
         </h1>
         <div class="heading-box__group">
           <div class="heading-box__detail">
@@ -119,29 +109,17 @@
             <h2 class="heading-secondary ma-bt-lg">Your tour guides</h2>
 
             <div class="overview-box__detail">
-              <img
-                src="img/users/user-19.jpg"
-                alt="Lead guide"
-                class="overview-box__img"
-              />
+              <img src="img/users/user-19.jpg" alt="Lead guide" class="overview-box__img" />
               <span class="overview-box__label">Lead guide</span>
               <span class="overview-box__text">Steven Miller</span>
             </div>
             <div class="overview-box__detail">
-              <img
-                src="img/users/user-18.jpg"
-                alt="Tour guide"
-                class="overview-box__img"
-              />
+              <img src="img/users/user-18.jpg" alt="Tour guide" class="overview-box__img" />
               <span class="overview-box__label">Tour guide</span>
               <span class="overview-box__text">Lisa Brown</span>
             </div>
             <div class="overview-box__detail">
-              <img
-                src="img/users/user-17.jpg"
-                alt="Intern"
-                class="overview-box__img"
-              />
+              <img src="img/users/user-17.jpg" alt="Intern" class="overview-box__img" />
               <span class="overview-box__label">Intern</span>
               <span class="overview-box__text">Max Smith</span>
             </div>
@@ -170,25 +148,13 @@
 
     <section class="section-pictures">
       <div class="picture-box">
-        <img
-          class="picture-box__img picture-box__img--1"
-          src="img/tour-5-1.jpg"
-          alt="The Park Camper Tour 1"
-        />
+        <img class="picture-box__img picture-box__img--1" src="img/tour-5-1.jpg" alt="The Park Camper Tour 1" />
       </div>
       <div class="picture-box">
-        <img
-          class="picture-box__img picture-box__img--2"
-          src="img/tour-5-2.jpg"
-          alt="The Park Camper Tour 1"
-        />
+        <img class="picture-box__img picture-box__img--2" src="img/tour-5-2.jpg" alt="The Park Camper Tour 1" />
       </div>
       <div class="picture-box">
-        <img
-          class="picture-box__img picture-box__img--3"
-          src="img/tour-5-3.jpg"
-          alt="The Park Camper Tour 1"
-        />
+        <img class="picture-box__img picture-box__img--3" src="img/tour-5-3.jpg" alt="The Park Camper Tour 1" />
       </div>
     </section>
 
@@ -252,7 +218,7 @@
 
         const bounds = new mapboxgl.LngLatBounds();
 
-        geojson.features.forEach(function(marker) {
+        geojson.features.forEach(function (marker) {
           var el = document.createElement('div');
           el.className = 'marker';
 
@@ -283,7 +249,7 @@
           }
         });
 
-        map.on('load', function() {
+        map.on('load', function () {
           map.addLayer({
             id: 'route',
             type: 'line',
@@ -321,11 +287,7 @@
       <div class="reviews">
         <div class="reviews__card">
           <div class="reviews__avatar">
-            <img
-              src="img/users/user-7.jpg"
-              alt="Jim Brown"
-              class="reviews__avatar-img"
-            />
+            <img src="img/users/user-7.jpg" alt="Jim Brown" class="reviews__avatar-img" />
             <h6 class="reviews__user">Jim Brown</h6>
           </div>
           <p class="reviews__text">
@@ -354,11 +316,7 @@
 
         <div class="reviews__card">
           <div class="reviews__avatar">
-            <img
-              src="img/users/user-14.jpg"
-              alt="Laura Wilson"
-              class="reviews__avatar-img"
-            />
+            <img src="img/users/user-14.jpg" alt="Laura Wilson" class="reviews__avatar-img" />
             <h6 class="reviews__user">Laura Wilson</h6>
           </div>
           <p class="reviews__text">
@@ -387,11 +345,7 @@
 
         <div class="reviews__card">
           <div class="reviews__avatar">
-            <img
-              src="img/users/user-15.jpg"
-              alt="Ben Hadley"
-              class="reviews__avatar-img"
-            />
+            <img src="img/users/user-15.jpg" alt="Ben Hadley" class="reviews__avatar-img" />
             <h6 class="reviews__user">Ben Hadley</h6>
           </div>
           <p class="reviews__text">
@@ -420,11 +374,7 @@
 
         <div class="reviews__card">
           <div class="reviews__avatar">
-            <img
-              src="img/users/user-6.jpg"
-              alt="Alexander Jones"
-              class="reviews__avatar-img"
-            />
+            <img src="img/users/user-6.jpg" alt="Alexander Jones" class="reviews__avatar-img" />
             <h6 class="reviews__user">Alexander Jones</h6>
           </div>
           <p class="reviews__text">
@@ -453,11 +403,7 @@
 
         <div class="reviews__card">
           <div class="reviews__avatar">
-            <img
-              src="img/users/user-3.jpg"
-              alt="Ayla Cornell"
-              class="reviews__avatar-img"
-            />
+            <img src="img/users/user-3.jpg" alt="Ayla Cornell" class="reviews__avatar-img" />
             <h6 class="reviews__user">Ayla Cornell</h6>
           </div>
           <p class="reviews__text">
@@ -488,7 +434,7 @@
     <section class="section-cta">
       <div class="cta">
         <div class="cta__img cta__img--logo">
-          <img src="img/logo-white.png" alt="Natours logo" class="" />
+          <img src="img/logo-white.png" alt="Hikely logo" class="" />
         </div>
         <img src="img/tour-5-2.jpg" alt="" class="cta__img cta__img--1" />
         <img src="img/tour-5-1.jpg" alt="" class="cta__img cta__img--2" />
@@ -505,7 +451,7 @@
 
     <div class="footer">
       <div class="footer__logo">
-        <img src="img/logo-green.png" alt="Natours logo" />
+        <img src="img/logo-green.png" alt="Hikely logo" />
       </div>
       <ul class="footer__nav">
         <li><a href="#">About us</a></li>
@@ -519,4 +465,5 @@
       </p>
     </div>
   </body>
+
 </html>
