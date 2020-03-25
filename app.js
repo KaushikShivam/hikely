@@ -7,12 +7,17 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
+<<<<<<< HEAD
 const compression = require('compression');
+=======
+const cors = require('cors');
+>>>>>>> development
 
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
+const bookingController = require('./controllers/bookingController');
 const viewRouter = require('./routes/viewRoutes');
 
 const AppError = require('./utils/AppError');
@@ -23,6 +28,9 @@ app.enable('trust proxy');
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
+
+app.use(cors());
+app.options('*', cors());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -37,6 +45,13 @@ const limiter = rateLimit({
 });
 
 app.use('/api', limiter);
+
+app.post(
+  '/webhook-checkout',
+  express.raw({ type: 'application/json' }),
+  bookingController.webhookCheckout
+);
+
 app.use(helmet());
 
 app.use(express.json({ limit: '10kb' }));
