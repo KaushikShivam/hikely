@@ -3,7 +3,7 @@ const { promisify } = require('util');
 const jwt = require('jsonwebtoken');
 const User = require('./../models/userModel');
 const catchAsync = require('./../utils/catchAsync');
-const AppError = require('./../utils/AppError');
+const AppError = require('./../utils/appError');
 const Email = require('./../utils/email');
 
 const signToken = id => {
@@ -14,16 +14,14 @@ const signToken = id => {
 
 const createSendToken = (user, statusCode, req, res) => {
   const token = signToken(user._id);
-  const cookieOptions = {
+
+  res.cookie('jwt', token, {
     expires: new Date(
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
     ),
-    httpOnly: true
-  };
-  if (req.secure || req.headers('x-forwarded-proto' === 'https'))
-    cookieOptions.secure = true;
-
-  res.cookie('jwt', token, cookieOptions);
+    httpOnly: true,
+    secure: req.secure || req.headers['x-forwarded-proto'] === 'https'
+  });
 
   // Remove password from output
   user.password = undefined;
@@ -46,6 +44,7 @@ exports.signup = catchAsync(async (req, res, next) => {
   });
 
   const url = `${req.protocol}://${req.get('host')}/me`;
+  // console.log(url);
   await new Email(newUser, url).sendWelcome();
 
   createSendToken(newUser, 201, req, res);
@@ -178,12 +177,10 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   await user.save({ validateBeforeSave: false });
 
   // 3) Send it to user's email
-
   try {
     const resetURL = `${req.protocol}://${req.get(
       'host'
     )}/api/v1/users/resetPassword/${resetToken}`;
-
     await new Email(user, resetURL).sendPasswordReset();
 
     res.status(200).json({
