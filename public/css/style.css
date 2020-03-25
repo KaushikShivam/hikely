@@ -1415,3 +1415,15 @@ body {
     padding: 2rem;
   }
 }
+
+@media only screen and (max-width: 780px) {
+  .user-view__form-container {
+    padding: 0 2rem;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .user-view {
+    flex-direction: column-reverse;
+  }
+}
